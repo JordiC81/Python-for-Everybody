@@ -1,0 +1,11 @@
+def count (a,b):
+    count=0
+    for letter in a:
+        count=count+1
+        if letter == b:
+           print(count)
+    
+
+input_word=input('Please enter word: ')
+input_letter=input('Please enter letter: ')
+count(input_word,input_letter)
