@@ -1,0 +1,25 @@
+def computepay(time_hours,time_rate):
+    #time_hours is the number of hours
+    #time_rate is the rate per hour
+    if time_hours <= 40:
+        return time_hours*time_rate
+
+    overtime = time_hours-40
+    return 40*time_rate + 1.5*overtime*time_rate
+
+def checkfloat (input1):
+    try: 
+        val=float(input1)
+        return val
+    except:
+        print('Please, enter number')
+
+
+input_hours = input('Enter Hours')
+Hours=checkfloat(input_hours)
+
+input_rate=input('Enter Rate')
+Rate=checkfloat(input_rate)
+
+pay=computepay(Hours,Rate)
+print (pay)
