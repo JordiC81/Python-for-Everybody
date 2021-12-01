@@ -1,0 +1,32 @@
+def check_float(input1):
+    try:
+        value=float(input1)
+        return value
+    except:
+        print('Please Enter Number')
+        quit() 
+
+input1=input('Enter Number: ')
+if input1 == 'done':
+    quit()
+
+number=check_float(input1)
+
+smallest=number
+largest=number
+
+while True:
+    input1=input('Enter Number: ')
+    if input1 == 'done':
+        break
+    
+    number=check_float(input1)
+    
+    if number>largest:
+        largest=number
+    if number<smallest:
+        smallest=number
+
+print(largest,smallest)
+
+
