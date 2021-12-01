@@ -1,0 +1,26 @@
+def computegrade (bruce):
+    if 0.0<= bruce <=1.0:
+        if bruce>=0.9:
+            return 'A'
+        elif bruce >=0.8:
+            return 'B'
+        elif bruce >=0.7:
+            return 'C'
+        elif bruce >=0.6:
+            return 'D'
+        return 'F'
+    return 'Bad score'
+        
+def checkfloat (input1):
+    try:
+        val = float(input1)
+        return val
+    except:
+        print('Enter Number please')
+        quit() #quits the program if you fall in the exception (otherwise continues running the script)
+
+
+input_score=input('Enter score')
+Score = checkfloat(input_score)
+Grade = computegrade(Score)
+print(Grade)
