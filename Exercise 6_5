@@ -1,0 +1,13 @@
+str='X-DSPAM-Confidence : 0.8475'
+start=str.find(':')
+print (start)
+text=str[start+1:]
+print(text)
+convert=float(text)
+print(convert)
+
+new_str=str.replace('DSPAM','300')
+print(new_str)
+
+new_str2=str.strip() #doesn't seem to work
+print(new_str2)
