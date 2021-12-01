@@ -1,0 +1,16 @@
+input_hours=input('Enter Hours: ')
+
+input_rate=input('Enter Rate: ')
+
+Rate=float(input_rate)
+Hours=float(input_hours)
+
+Rate2=1.5*Rate
+
+if Hours<40:
+	Pay=Rate*Hours
+else:
+	Overtime = Hours-40
+	Pay= Rate*40+Overtime*Rate2
+
+print(Pay)
