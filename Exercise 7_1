@@ -1,0 +1,5 @@
+fhand=open('mbox.txt')
+count=0
+for line in fhand:              #goes one line at a time
+    shout=line.rstrip().upper() #creates new variable which for each line removes newline (rstrip) and capitalizes (upper)
+    print(shout)
