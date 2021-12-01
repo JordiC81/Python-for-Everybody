@@ -1,0 +1,21 @@
+def check_float(input1):
+    try:
+        value=float(input1)
+        return value
+    except:
+        print('Please Enter Number')
+        quit()
+    
+count=0
+total=0
+average=0 #initialising variables
+
+while True:
+    input_number=input('Enter number: ')
+    if input_number == 'done':
+        break
+    number=check_float(input_number)
+    count=count+1
+    total=total+number
+    average=total/count
+print(total, count, average)
