@@ -1,0 +1,22 @@
+#THIS DIDN'T WORK
+import socket
+mysock=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+try:                       #this extracts the HOST name
+    url=input('Enter- ')   
+    splitter=url.split('/')
+    host=splitter[2:3]
+    print(host)
+    mysock.connect((host,80))                        #connection to HOST and port 80
+    cmd= 'GET'+url+'HTTP/1.0\r\n\r\n'.encode() #note blank lines r\n\r\n\ + encode converts strings into bytes
+    mysock.send(cmd)  #sends a GET command
+except:
+    print('Url address does not exist')
+    quit()                                            
+
+while True:
+    data=mysock.recv(512)                                   #receive data in 512 characters
+    if len(data)<1:
+        break
+    print(data.decode(),end='')                             #converts bytes into strings
+
+mysock.close()
