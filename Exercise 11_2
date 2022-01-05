@@ -1,0 +1,19 @@
+import re
+fname=input('Enter name of file: ')
+try:
+    fhand=open(fname)
+except:
+    print('File ' + fname + ' could not be found')
+    quit()
+sum=0
+count=0
+for line in fhand:
+    line=line.rstrip()
+    extract=re.findall('^New Revision: ([0-9]+)',line)
+    if extract != []:
+        for val in extract:                             #one needs to do this because extract is a list and float can't take lists
+            number=float(val)
+            sum=sum+number
+            count +=1
+average=sum/count
+print(average)
