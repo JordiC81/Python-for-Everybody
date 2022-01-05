@@ -1,0 +1,12 @@
+My_list=[]
+while True:
+    Numbers=input('Please enter a number: ')
+    if Numbers =='done':break
+    try:
+        Number=float(Numbers)
+    except:
+        print('Invalid input')
+        quit()
+    My_list.append(Number)
+print('Maximum: %d' %max(My_list))
+print('Minimum: %d' %min(My_list))
