@@ -1,0 +1,23 @@
+fname=input('Enter name of file: ')         #Remember the file name is mbox.txt
+try:
+    fhand=open(fname)
+    
+except:
+    if fname == 'na na boo boo':
+        print ('You have been punked')
+        exit()
+    print('File',fname,'does not exist')
+    exit()
+count=0
+total=0
+for line in fhand:
+    if line.startswith('X-DSPAM-Confidence: '):
+        count=count+1
+        colpos=line.find(':')            #This gives the position of : in the line starting with XDSPAMCONFIDENCE
+        number=line[colpos+1:].rstrip()  #I understand this takes the number which is located after colpos and removes \n
+        SPAM_C=float(number)             #Converts to float
+        total=total + SPAM_C
+
+average=total/count
+print('Total lines: ',count)
+print('Total average spam: ', average)
