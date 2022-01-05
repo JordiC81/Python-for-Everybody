@@ -1,0 +1,15 @@
+words_text=open('words.txt')
+my_list=dict()                  #starts dictionary
+i=0
+for line in words_text:
+    words=line.split()
+    for word in words:
+        if word in my_list:continue
+        my_list[word]=i
+        i+=1                                #allocates number to word
+#print(my_list)                             #in case you want to print the list
+Search=input('Enter searchable word: ')        #prompts searchable word and tells True or False
+if Search in my_list:
+    print('True')
+else:
+    print('False')
