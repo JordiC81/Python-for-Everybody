@@ -1,0 +1,16 @@
+fhand=open('mbox.txt')
+for line in fhand:
+    words=line.split()
+    #print('Debug: ',words)         #Debugging shows that blank line poses a problem
+    if len(words) == 0:continue     # when line is blank, then continue (as blank lines are uninteresting) 
+    if words[0] != 'From':continue  # when line does not start (!= means different from) with 'From', continue 
+    print(words[2])
+
+#A BEST CODING WOULD BE AS FOLLOWS
+fhand=open('mbox.txt')
+for line in fhand:
+    words=line.split()
+    #print('Debug: ',words)        
+    if len(words) < 3:continue     # Like this lines with more than zero but less than 3 words are also skipped
+    if words[0] != 'From':continue  
+    print(words[2])
