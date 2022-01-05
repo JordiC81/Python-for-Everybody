@@ -1,0 +1,6 @@
+fhand=open('mbox.txt')
+for line in fhand:
+    words=line.split()
+    #print('Debug: ',words)        
+    if len(words) < 3 or words[0] != 'From':continue     #one can combine the two if statements in 1 with OR
+    print(words[2])
