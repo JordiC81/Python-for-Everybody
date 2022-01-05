@@ -1,0 +1,18 @@
+fname=input('Enter name of file: ')            #usual filename opening
+try:
+    text=open(fname)
+except:
+    print('Filename',fname,'does not exist')
+    quit()
+
+lst_dates=dict()
+for line in text:
+    words=line.split()
+    if len(words) < 3:continue                  #avoid a previous mistake where sentence had less than 3 words
+    if words[0] != 'From':continue              #if not starting with From then pass
+    date=words[2]                               #creates variable date with the date words
+    if date not in lst_dates:
+        lst_dates[date]=1
+    else:
+        lst_dates[date]+=1
+print(lst_dates)
