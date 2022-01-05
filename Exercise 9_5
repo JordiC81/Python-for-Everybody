@@ -1,0 +1,23 @@
+#fname=input('Enter file name: ')
+try:
+    text=open('mbox.txt')
+except:
+    print('Filename does not exist')
+    quit()
+
+emails=dict()
+for line in text:
+    words=line.split()
+    if len(words) < 2:continue
+    if words[0] != 'From':continue
+    name=words[1]                   #this three lines to find location of @ and then slice name
+    index=name.find('@')
+    short_name=name[index+1:]
+    if short_name not in emails:
+        emails[short_name]=1
+    else:
+        emails[short_name]+=1
+#print(emails)                      here one can already print the dictionary but I wanted it by alphabetical order
+lst=list(emails.keys())
+lst.sort()
+print(lst)                          #didn't manage to print the number of ocurrences for each item..
