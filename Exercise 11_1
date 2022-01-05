@@ -1,0 +1,12 @@
+import re
+count=0
+input_exp=input('Enter a regular expression: ')
+reg_exp=str(input_exp)                          #Need to convert to a string to be used in findall
+fname='mbox.txt'                                #This is just for ease of printing later on
+fhand=open(fname)
+
+for line in fhand:
+    line=line.rstrip()                          #Remember it is rstrip not rsplit
+    if re.findall(reg_exp, line) != []:         #Note [] meaning zero matches
+        count += 1
+print(fname + ' had ' + str(count) + ' lines that matched ' + reg_exp)  #Note: concatenation (ie '+') only works with strings. Note also the spaces      
