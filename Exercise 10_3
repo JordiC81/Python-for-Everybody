@@ -1,0 +1,50 @@
+import string
+
+#ENGLISH TEXT:
+fhand=open('romeo-full.txt')
+count=dict()
+total=0
+for line in fhand:
+    line=line.translate(str.maketrans('','',string.digits))     #removes numbers
+    line=line.translate(str.maketrans('','',string.punctuation)) #removes punctuation
+    line=line.lower()                                           #lower case
+    words=line.split()                                          #splits words
+    for word in words:
+        for a in word:
+            total+=1                                            #a counter of total letters
+            if a not in count:
+                count[a]=1                                      #a counter of individual letters
+            else:
+                count[a]+=1
+lst=list()
+for letter,val in count.items():
+    lst.append((round(val/total*100,2),letter))                 #estimates relative frequency
+    lst.sort(reverse=True)                                      #sorts in reverse order
+for a,b in lst:
+    print('English: ',a,b)                                      #prints each letter with relative frequency
+
+#SPANISH TEXT                                                   #same proces with Spanish text
+fhand2=open('Romeo Y Julieta.txt')
+count2=dict()
+total2=0
+for line2 in fhand2:
+    line2=line2.translate(str.maketrans('','',string.digits))
+    line2=line2.translate(str.maketrans('','',string.punctuation))
+    line2=line2.lower()
+    words2=line2.split()
+    for word2 in words2:
+        for a in word2:
+            total2+=1
+            if a not in count2:
+                count2[a]=1
+            else:
+                count2[a]+=1
+lst2=list()
+for letter,val in count2.items():
+    lst2.append((round(val/total2*100,2),letter))
+    lst2.sort(reverse=True)
+for a,b in lst2:
+    print('Spanish: ', a,b)
+            
+    #line=line.replace(" ","")
+    #print(line)
