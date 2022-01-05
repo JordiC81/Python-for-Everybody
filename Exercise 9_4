@@ -1,0 +1,27 @@
+#fname=input('Enter file name: ')
+try:
+    text=open('mbox.txt')
+except:
+    print('Filename does not exist')
+    quit()
+
+emails=dict()
+for line in text:
+    words=line.split()
+    if len(words) < 2:continue
+    if words[0] != 'From':continue
+    name=words[1]
+    if name not in emails:
+        emails[name]=1
+    else:
+        emails[name]+=1
+print(emails)
+largest=None                            #above is the same code as previous Ex, here starts loop for counting
+smallest=None
+for i in emails:
+    if largest is None or i > largest:
+        largest=i
+    if smallest is None or i < smallest:
+        smallest=i
+print('Largest:',largest,emails[largest])
+print('Smallest:',smallest,emails[smallest])
