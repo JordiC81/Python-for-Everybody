@@ -1,0 +1,8 @@
+romeo_Text=open('romeo.txt')
+my_list=[]                          #Note you can start a list by putting blank "[]"
+for line in romeo_Text:             #work on each line    
+    words=line.split()      
+    for word in words:              #works on each word
+        if word in my_list:continue # if word in list, it continues
+        my_list.append(word)        # otherwise it appends word to my_list
+print(sorted(my_list))              # sorts my_list by alphabetical order
