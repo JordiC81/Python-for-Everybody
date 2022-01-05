@@ -1,0 +1,19 @@
+def chop(t):
+    del t[0]
+    del t[-1]           #remember -1 is last item
+
+def middle(t):
+    new=t[1:]
+    del new[-1]
+    return new
+
+my_list=[1,2,3,4]
+
+chop_list=chop(my_list)   #Note: chop function modifies the existing my_list. For this reason, print(my_list) is [2,3] and reapplying the chop function in chop_list results
+print(my_list)            #in returning None  
+print(chop_list)
+
+my_list=[1,2,3,4]         #Instead, middle function returns a new list, meaning my_list remains unaffected  
+middle_list= middle(my_list)
+print(my_list)
+print(middle_list)
