@@ -1,0 +1,18 @@
+fname=input('Enter file name: ')
+try:
+    text=open(fname)
+except:
+    print('Filename does not exist')
+    quit()
+
+emails=dict()
+for line in text:
+    words=line.split()
+    if len(words) < 2:continue
+    if words[0] != 'From':continue
+    name=words[1]
+    if name not in emails:
+        emails[name]=1
+    else:
+        emails[name]+=1
+print(emails)
