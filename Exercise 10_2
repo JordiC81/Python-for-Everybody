@@ -1,0 +1,18 @@
+fhand=open('mbox.txt')
+counts=dict()
+for line in fhand:
+    words=line.split()
+    if len(words)<5:continue
+    if words[0] != 'From':continue
+    time=words[5]
+    if time[:2] not in counts:
+        counts[time[:2]]=1
+    else:
+        counts[time[:2]]+=1
+lst=list()
+for key,val in counts.items():
+    lst.append((key,val))
+    lst.sort()
+
+for key,val in lst:                 #Note you have to do this in a separate loop otherwise the list is not yet sorted
+    print(key,val)
